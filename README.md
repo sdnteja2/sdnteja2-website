@@ -153,7 +153,7 @@ Clone the project
 
 ```bash
 https://github.com/sdnteja2/sdnteja2.sch.id/
-```
+``` 
 xsxs
 ```bash
 xsxs
@@ -181,8 +181,7 @@ Please read the [Code of Conduct](https://github.com/sdnteja2/sdnteja2.sch.id//b
 
 - apa coba
 - iyaa
-
-
+ 
 ## :warning: License
 
 Distributed under the no License. See LICENSE.txt for more information.

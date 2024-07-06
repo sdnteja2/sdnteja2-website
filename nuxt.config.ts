@@ -9,6 +9,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/fonts',
     'nuxt-swiper',
-    '@nuxthq/studio'
+    "@nuxthq/studio"
   ]
 })
