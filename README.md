@@ -85,7 +85,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 <h4> <a href=https://sdnteja2.vercel.app/>View Demo</a> <span> · </span> <a href="https://github.com/sdnteja2/sdntja2.sch.id/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/sdnteja2/sdntja2.sch.id/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/sdnteja2/sdntja2.sch.id/issues"> Request Feature </a> </h4>
 
-
 </div>
 
 # :notebook_with_decorative_cover: Table of Contents
@@ -97,7 +96,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 - [Contact](#handshake-contact)
 - [Acknowledgements](#gem-acknowledgements)
 
-
 ## :star2: About the Project
 <details> <summary>Server</summary> <ul>
 <li><a href="https://sdnteja2.vercel.app/">ddd</a></li>
@@ -105,7 +103,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 ### :dart: Features
 - Light
-
 
 ### :art: Color Reference
 | Color           | Hex                                                              |
@@ -119,8 +116,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 To run this project, you will need to add the following environment variables to your .env file
 `nvm`
 
-
-
 ## :toolbox: Getting Started
 
 ### :bangbang: Prerequisites
@@ -130,14 +125,12 @@ To run this project, you will need to add the following environment variables to
 `knks
 ```
 
-
 ### :gear: Installation
 
 npm
 ```bash
 onos
 ```
-
 
 ### :test_tube: Running Tests
 
@@ -146,24 +139,21 @@ xsxs
 xsxsx
 ```
 
-
 ### :running: Run Locally
 
 Clone the project
 
 ```bash
 https://github.com/sdnteja2/sdnteja2.sch.id/
-``` 
+```
 xsxs
 ```bash
 xsxs
 ```
 
-
 ## :compass: Roadmap
 
 * [x] bahsa
-
 
 ## :wave: Contributing
 
@@ -181,7 +171,7 @@ Please read the [Code of Conduct](https://github.com/sdnteja2/sdnteja2.sch.id//b
 
 - apa coba
 - iyaa
- 
+
 ## :warning: License
 
 Distributed under the no License. See LICENSE.txt for more information.

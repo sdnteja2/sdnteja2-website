@@ -1,6 +1,7 @@
 {
   // Disable the default formatter, use eslint instead
-"eslint.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": false,
 
   // Auto fix
