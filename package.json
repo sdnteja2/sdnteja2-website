@@ -1,19 +1,25 @@
 {
   "name": "sdnteja2.sch.id",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "start": "bun dev -o"
   },
   "dependencies": {
+    "@iconify-json/hugeicons": "^1.1.0",
     "nuxt": "^3.12.3",
     "vue": "latest"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.22.0-beta.1",
+    "@eslint/eslintrc": "^3.1.0",
     "@nuxt/content": "^2.13.1",
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/fonts": "^0.7.1",
@@ -21,6 +27,9 @@
     "@nuxt/ui": "^2.17.0",
     "@nuxthq/studio": "^2.0.3",
     "aos": "^2.3.4",
+    "eslint": "^9.6.0",
+    "eslint-plugin-format": "^0.1.2",
+    "eslint-plugin-tailwindcss": "^3.17.4",
     "nuxt-swiper": "^1.2.2",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue-use-active-scroll": "^1.1.1"
