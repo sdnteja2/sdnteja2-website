@@ -31,7 +31,8 @@ const items = [{
 
 <template>
   <NuxtLayout>
-    <UContainer>
+    <UContainer class="py-20">
+      <ContentDoc />
       <div class="flex flex-col space-y-10">
         <UAccordion :items="items" />
         <UAlert
@@ -50,9 +51,16 @@ const items = [{
           divider="/"
           :links="[{ label: 'Home', to: '/' }, { label: 'Navigation' }, { label: 'Breadcrumb' }]"
         />
+        <UCard>
+          <template #header>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio saepe est voluptatum earum, aspernatur eius ducimus mollitia vero aperiam nemo culpa ut excepturi autem. Expedita repudiandae blanditiis vitae necessitatibus a.
+          </template>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum labore a quam, vel unde est natus tempore excepturi enim corporis molestias, aliquam cumque, sed consectetur ea odit perspiciatis? Iste, aliquid?
+          <template #footer>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi a consequatur quia libero ratione praesentium, enim totam porro impedit quibusdam ducimus, aspernatur, deleniti et voluptatibus alias eum dolores tempore! Voluptate.
+          </template>
+        </UCard>
       </div>
-
-      <ContentDoc />
     </UContainer>
   </NuxtLayout>
 </template>
