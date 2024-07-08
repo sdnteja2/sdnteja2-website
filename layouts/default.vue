@@ -1,10 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <UContainer>
-    <ColorMode />
-    <slot />
-  </UContainer>
+  <div>
+    <AppNavBar />
+    <UContainer>
+      <slot />
+    </UContainer>
+  </div>
 </template>
 
 <style scoped></style>
