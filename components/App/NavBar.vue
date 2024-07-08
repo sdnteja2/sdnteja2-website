@@ -1,17 +1,18 @@
 <script setup lang="ts">
-const open = ref(true)
+const open = ref()
 
 // Define a shortcut to toggle the open state
-defineShortcuts({
-  o: () => open.value = !open.value,
-})
+// defineShortcuts({
+//   o: () => open.value = !open.value,
+// })
 
 // Define a computed property to change the icon based on the open state
 const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-02' : 'i-hugeicons-dashboard-square-01')
+// When the user scrolls the page, execute myFunction
 </script>
 
 <template>
-  <div class="fixed top-0 z-50 w-full">
+  <div class="fixed top-0 z-[49] w-full">
     <header class="w-full bg-gray-50/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2 md:px-0">
       <nav class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center">
@@ -19,9 +20,26 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
             LOGO
           </div>
           <div class="flex items-center">
+            <div class="md:flex flex-row space-x-2 hidden">
+              <ContentNavigation v-slot="{ navigation }">
+                <div v-for="link of navigation" :key="link._path">
+                  <UButton
+                    :icon="link.icon"
+                    size="sm"
+                    :color="$route.path === link._path ? 'primary' : 'gray'"
+                    :variant="$route.path === link._path ? 'solid' : 'ghost'"
+                    :label="link.title"
+                    :trailing="false"
+                    :to="link._path"
+                    class="w-full"
+                  />
+                </div>
+              </ContentNavigation>
+            </div>
             <ColorMode />
-            <div class="relative">
+            <div class="relative md:hidden">
               <UPopover
+                v-model:open="open"
                 :popper="{ offsetDistance: 10 }"
                 :ui="{
                   container: 'z-40 group',
@@ -46,7 +64,7 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
                         <UButton
                           :icon="link.icon"
                           size="sm"
-                          color="primary"
+                          :color="$route.path === link._path ? 'primary' : 'gray'"
                           :variant="$route.path === link._path ? 'solid' : 'ghost'"
                           :label="link.title"
                           :trailing="false"
