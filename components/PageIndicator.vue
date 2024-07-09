@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useWindowScroll } from '@vueuse/core'
+
 const myBar = ref<HTMLElement | null>(null)
+const { y } = useWindowScroll()
 
 function updateProgressBar() {
-  const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+  const winScroll = y.value
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
   const scrolled = (winScroll / height) * 100
   if (myBar.value) {
@@ -24,13 +29,10 @@ router.afterEach(() => {
   updateProgressBar()
 })
 
-onMounted(() => {
-  window.addEventListener('scroll', updateProgressBar)
-  updateProgressBar()
-})
+watch(y, updateProgressBar)
 
-onUnmounted(() => {
-  window.removeEventListener('scroll', updateProgressBar)
+onMounted(() => {
+  updateProgressBar()
 })
 </script>
 
@@ -39,3 +41,9 @@ onUnmounted(() => {
     <div id="myBar" ref="myBar" class="w-full fixed top-0 z-50 h-1 bg-merah" />
   </div>
 </template>
+
+<style scoped>
+#myBar {
+  transition: width 0.1s ease-in-out;
+}
+</style>

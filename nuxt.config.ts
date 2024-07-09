@@ -10,10 +10,10 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     'nuxt-swiper',
     '@nuxthq/studio',
+    '@vueuse/nuxt',
   ],
   content: {
     documentDriven: true,
-
     navigation: {
       fields: ['navTitle', 'icon'],
     },
@@ -38,7 +38,6 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       { name: 'Gothic A1', provider: 'google', weights: ['400', '700', '900'], subsets: ['latin'], display: 'swap',
-
       },
       { name: 'Work Sans', weights: ['100', '200', '300', '400', '500', '600', '700', '800', '900'], provider: 'google', display: 'swap',
       },
@@ -51,7 +50,6 @@ export default defineNuxtConfig({
       },
       preload: true,
       styles: ['normal', 'italic'],
-
     },
     assets: {
       prefix: '/_fonts',
@@ -62,7 +60,6 @@ export default defineNuxtConfig({
       standalone: false,
     },
   },
-
   nitro: {
     prerender: {
       failOnError: false,
