@@ -12,7 +12,7 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
 
 <template>
   <div class="fixed top-0 z-[49] w-full">
-    <header class="w-full bg-gray-50/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2 md:px-0">
+    <header class="w-full bg-gray-100/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2 md:px-0">
       <nav class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center">
           <div class="flex w-full">
@@ -25,7 +25,7 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
                   <UButton
                     :icon="link.icon"
                     size="sm"
-                    :color="$route.path === link._path ? 'primary' : 'blue'"
+                    :color="$route.path === link._path ? 'primary' : 'gray'"
                     :variant="$route.path === link._path ? 'solid' : 'ghost'"
                     :label="link.title"
                     :trailing="false"
@@ -35,7 +35,9 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
                 </div>
               </ContentNavigation>
             </div>
-            <ColorMode />
+            <div class="ml-4">
+              <ColorMode />
+            </div>
             <div class="flex ml-2 md:hidden ">
               <UPopover
                 v-model:open="open"
