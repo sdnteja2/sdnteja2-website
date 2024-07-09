@@ -31,7 +31,6 @@ const items = [{
 
 <template>
   <div>
-    <PageIndicator />
     <NuxtLayout>
       <UContainer class="py-20">
         <ContentDoc />

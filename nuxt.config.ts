@@ -13,9 +13,24 @@ export default defineNuxtConfig({
   ],
   content: {
     documentDriven: true,
+
+    navigation: {
+      fields: ['navTitle', 'icon'],
+    },
+    markdown: {
+      anchorLinks: false,
+    },
+    highlight: {
+      theme: {
+        default: 'github-light',
+        dark: 'github-dark',
+      },
+      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini', 'c', 'cpp'],
+    },
   },
   ui: {
     icons: ['hugeicons'],
+    global: true,
   },
   colorMode: {
     preference: 'light',
@@ -49,9 +64,6 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    devProxy: {
-      host: '127.0.0.1',
-    },
     prerender: {
       failOnError: false,
       crawlLinks: true,
@@ -104,7 +116,19 @@ export default defineNuxtConfig({
   //   },
   // },
   app: {
-
+    head: {
+      htmlAttrs: {
+        lang: 'id',
+      },
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      meta: [
+        {
+          name: 'theme-color',
+          content: '#F22727',
+        },
+      ],
+    },
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },

@@ -1,40 +1,13 @@
 <script setup lang="ts">
 const open = ref()
-const items = [
-
-  [{
-    label: 'Settings',
-    icon: 'i-heroicons-cog-8-tooth',
-    link: '/',
-  }],
-  [{
-    label: 'Documentation',
-    icon: 'i-heroicons-book-open',
-    link: '/artikel',
-  }, {
-    label: 'Changelog',
-    icon: 'i-heroicons-megaphone',
-    link: '/guru',
-  }, {
-    label: 'Status',
-    icon: 'i-heroicons-signal',
-    link: '/berita',
-  }],
-  [{
-    label: 'Sign out',
-    icon: 'i-heroicons-arrow-left-on-rectangle',
-    link: '/galeri',
-  }],
-]
 
 // Define a shortcut to toggle the open state
-// defineShortcuts({
-//   o: () => open.value = !open.value,
-// })
+defineShortcuts({
+  o: () => open.value = !open.value,
+})
 
-// Define a computed property to change the icon based on the open state
+// // Define a computed property to change the icon based on the open state
 const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-02' : 'i-hugeicons-dashboard-square-01')
-// When the user scrolls the page, execute myFunction
 </script>
 
 <template>
@@ -63,18 +36,7 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
               </ContentNavigation>
             </div>
             <ColorMode />
-            <div class="flex space-x-4 ">
-              <UDropdown :items="items" :ui="{ item: { disabled: 'cursor-text select-text' } }" :popper="{ placement: 'bottom-start' }">
-                <template #item="{ item }">
-                  <div class="w-full">
-                    <NuxtLink :to="item.link" class="flex items w-full">
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <UIcon :name="item.icon" class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
-                    </NuxtLink>
-                  </div>
-                </template>
-              </UDropdown>
+            <div class="flex ml-2 md:hidden ">
               <UPopover
                 v-model:open="open"
                 :popper="{ offsetDistance: 10 }"
