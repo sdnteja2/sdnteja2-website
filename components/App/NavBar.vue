@@ -25,7 +25,7 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
                   <UButton
                     :icon="link.icon"
                     size="sm"
-                    :color="$route.path === link._path ? 'primary' : 'gray'"
+                    :color="$route.path === link._path ? 'primary' : 'blue'"
                     :variant="$route.path === link._path ? 'solid' : 'ghost'"
                     :label="link.title"
                     :trailing="false"
