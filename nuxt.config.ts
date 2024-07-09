@@ -71,6 +71,8 @@ export default defineNuxtConfig({
         '/',
         '/artikel',
         '/galeri',
+        '/guru',
+        '/berita',
       ],
     },
   },
@@ -87,6 +89,8 @@ export default defineNuxtConfig({
     // Blog post page generated on demand once until next deployment, cached on CDN
     '/artikel/**': { isr: true },
     '/galeri/**': { isr: true },
+    '/guru/**': { isr: true },
+    '/berita/**': { isr: true },
     // Admin dashboard renders only on client-side
     // '/admin/**': { ssr: false },
     // Add cors headers on API routes
@@ -129,5 +133,7 @@ export default defineNuxtConfig({
         },
       ],
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
+    layoutTransition: { name: 'layout', mode: 'out-in' },
   },
 })
