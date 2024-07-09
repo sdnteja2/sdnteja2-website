@@ -1,20 +1,18 @@
 <script setup lang="ts">
 const open = ref()
-
 // Define a shortcut to toggle the open state
 defineShortcuts({
   o: () => open.value = !open.value,
 })
-
 // // Define a computed property to change the icon based on the open state
-const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-02' : 'i-hugeicons-dashboard-square-01')
+const trailingIcon = computed(() => open.value ? 'i-hugeicons-cancel-02' : 'i-hugeicons-dashboard-square-01')
 </script>
 
 <template>
   <div class="fixed top-0 z-[49] w-full">
-    <header class="w-full bg-gray-100/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2 md:px-0">
+    <header class="w-full  bg-gray-100/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2 ">
       <nav class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between h-14 items-center">
           <div class="flex w-full">
             LOGO
           </div>
@@ -23,6 +21,7 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
               <ContentNavigation v-slot="{ navigation }">
                 <div v-for="link of navigation" :key="link._path">
                   <UButton
+
                     :icon="link.icon"
                     size="sm"
                     :color="$route.path === link._path ? 'primary' : 'gray'"
@@ -31,6 +30,8 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
                     :trailing="false"
                     :to="link._path"
                     class="w-full"
+                    rel="nofollow"
+                    :title="link.title"
                   />
                 </div>
               </ContentNavigation>
@@ -57,7 +58,6 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-dashboard-square-0
                 }"
               >
                 <UButton color="gray" variant="ghost" :trailing-icon="trailingIcon" />
-
                 <template #panel="{ close }">
                   <div class="p-2 space-y-2">
                     <ContentNavigation v-slot="{ navigation }">
