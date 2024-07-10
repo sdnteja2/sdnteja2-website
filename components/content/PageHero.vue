@@ -1,14 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
-    <!-- Hero -->
+  <UContainer>
     <div class="max-w-[85rem] mx-auto ">
       <!-- Grid -->
       <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
         <div>
-          <h1 class="block text-3xl    sm:text-4xl lg:text-6xl lg:leading-tight  ">
-            Start your journey with <span class="text-primary-600">Preline</span>
+          <h1 class="block text-4xl   sm:text-4xl lg:text-6xl lg:leading-tight text-balance  ">
+            Selamat Datang di Website <span class="text-gray-900 dark:text-primary-600">SDN TEJA II</span>
           </h1>
           <p class="mt-3 text-lg   ">
             Hand-picked professionals and expertly crafted components, designed for any kind of entrepreneur.
@@ -33,7 +32,7 @@
         <!-- End Col -->
 
         <div class="relative ms-4">
-          <img class="w-full h-[250px] rounded-md" src="https://images.unsplash.com/photo-1665686377065-08ba896d16fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&h=800&q=80" alt="Image Description">
+          <img class="w-full h-64 md:h-[350px] bg-cover object-cover bg-center rounded-md" src="https://images.unsplash.com/photo-1665686377065-08ba896d16fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&h=800&q=80" alt="Image Description">
           <div class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 size-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-neutral-800 dark:via-neutral-900/0 dark:to-neutral-900/0" />
 
           <!-- SVG -->
@@ -64,8 +63,7 @@
       </div>
       <!-- End Grid -->
     </div>
-    <!-- End Hero -->
-  </div>
+  </UContainer>
 </template>
 
 <style scoped></style>

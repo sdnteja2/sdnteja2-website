@@ -2,8 +2,6 @@
 
 <template>
   <div>
-    <UContainer>
-      <slot />
-    </UContainer>
+    <slot />
   </div>
 </template>

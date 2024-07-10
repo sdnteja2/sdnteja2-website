@@ -4,11 +4,9 @@
 </script>
 
 <template>
-  <div>
+  <div class="py-10">
     <NuxtLayout>
-      <UContainer class="py-20">
-        <ContentDoc />
-      </UContainer>
+      <ContentDoc />
     </NuxtLayout>
   </div>
 </template>

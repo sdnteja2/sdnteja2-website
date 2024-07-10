@@ -37,7 +37,7 @@ export default defineNuxtConfig({
   },
   fonts: {
     families: [
-      { name: 'Gothic A1', provider: 'google', weights: ['400', '700', '900'], subsets: ['latin'], display: 'swap',
+      { name: 'Maven Pro', provider: 'google', weights: ['100', '200', '300', '400', '500', '600', '700', '800', '900'], subsets: ['latin'], display: 'swap',
       },
       { name: 'Work Sans', weights: ['100', '200', '300', '400', '500', '600', '700', '800', '900'], provider: 'google', display: 'swap',
       },
@@ -61,6 +61,10 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
+    devProxy: {
+      host: '127.0.0.1',
+      // host: 'localhost',
+    },
     prerender: {
       failOnError: false,
       crawlLinks: true,

@@ -5,6 +5,44 @@ export default defineAppConfig({
     card: {
       background: 'bg-primary-500',
     },
+    container: {
+      base: 'mx-auto',
+      padding: 'px-2 py-10 sm:py-12 lg:py-16 sm:px-6 lg:px-8',
+      constrained: 'max-w-7xl',
+    },
+    tabs: {
+      wrapper: 'relative space-y-2',
+      container: 'relative w-full',
+      base: 'focus:outline-none',
+      list: {
+        base: 'relative',
+        background: 'bg-gray-100 dark:bg-gray-800',
+        rounded: 'rounded-lg',
+        shadow: '',
+        padding: 'p-1',
+        height: 'h-10',
+        width: 'w-full',
+        marker: {
+          wrapper: 'absolute top-[4px] left-[4px] duration-200 ease-out focus:outline-none',
+          base: 'w-full h-full ',
+          background: 'bg-primary-500  dark:bg-primary-600',
+          rounded: 'rounded-md',
+          shadow: 'shadow-sm',
+        },
+        tab: {
+          base: 'relative inline-flex items-center justify-center flex-shrink-0 w-full ui-focus-visible:outline-0 ui-focus-visible:ring-2 ui-focus-visible:ring-primary-500 dark:ui-focus-visible:ring-primary-400 ui-not-focus-visible:outline-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors duration-200 ease-out',
+          background: '',
+          active: 'text-white dark:text-white',
+          inactive: 'text-gray-500 dark:text-gray-400',
+          height: 'h-8',
+          padding: 'px-3',
+          size: 'text-sm',
+          font: 'font-medium',
+          rounded: 'rounded-md',
+          shadow: '',
+        },
+      },
+    },
     button: {
       base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0',
       font: 'font-medium',
@@ -60,7 +98,7 @@ export default defineAppConfig({
         },
       },
       variant: {
-        solid: 'shadow-sm text-white dark:text-gray-900 bg-{color}-600 hover:bg-{color}-700 disabled:bg-{color}-500 dark:bg-{color}-500 dark:hover:bg-{color}-600 dark:disabled:bg-{color}-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500 dark:focus-visible:outline-{color}-400',
+        solid: 'shadow-sm text-white dark:text-gray-900 bg-{color}-600 hover:bg-{color}-700 disabled:bg-{color}-500 dark:bg-{color}-400 dark:hover:bg-{color}-600 dark:disabled:bg-{color}-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500 dark:focus-visible:outline-{color}-400',
         outline: 'ring-1 ring-inset ring-current text-{color}-500 dark:text-{color}-400 hover:bg-{color}-50 disabled:bg-transparent dark:hover:bg-{color}-950 dark:disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-{color}-500 dark:focus-visible:ring-{color}-400',
         soft: 'text-{color}-500 dark:text-{color}-400 bg-{color}-50 hover:bg-{color}-100 disabled:bg-{color}-50 dark:bg-{color}-950 dark:hover:bg-{color}-900 dark:disabled:bg-{color}-950 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-{color}-500 dark:focus-visible:ring-{color}-400',
         ghost: 'text-{color}-500 dark:text-{color}-400 hover:bg-{color}-50 disabled:bg-transparent dark:hover:bg-{color}-950 dark:disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-{color}-500 dark:focus-visible:ring-{color}-400',
