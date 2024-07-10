@@ -1,6 +1,6 @@
 <template>
   <!-- Hero -->
-  <div class=" ">
+  <UContainer>
     <!-- Clients -->
     <div class="relative overflow-hidden pt-16 ">
       <div class="relative z-10">
@@ -26,5 +26,5 @@
       </div>
     </div>
     <!-- End Clients -->
-  </div>
+  </UContainer>
 </template>

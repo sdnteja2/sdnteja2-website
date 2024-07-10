@@ -56,7 +56,7 @@ export default <Partial<Config>> {
 
       },
       fontFamily: {
-        title: ['Gothic A1', 'Gothic A1 fallback', ...fontFamily.sans],
+        title: ['Maven Pro', 'Maven Pro fallback', ...fontFamily.sans],
         body: ['Work Sans', 'Work Sans fallback', ...fontFamily.sans],
       },
       typography: ({ theme }: { theme: any }) => ({
@@ -105,8 +105,8 @@ export default <Partial<Config>> {
   plugins: [
     plugin(({ addComponents, theme }: { addComponents: any, theme: any }) => {
       addComponents({
-        '.title': {},
-        '.subtitle': {},
+        '.headline': {},
+        '.subheadline': {},
         '.cardHover': {},
       })
     }),
