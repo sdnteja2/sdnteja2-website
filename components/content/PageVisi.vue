@@ -1,8 +1,14 @@
 <script setup lang="ts">
 // Definisikan props
+interface TabItem {
+  label: string
+  content: string[]
+  image: string
+}
+
 defineProps({
   items: {
-    type: Array,
+    type: Array as () => TabItem[],
     default: () => ([]),
   },
   title: {
@@ -19,7 +25,7 @@ defineProps({
         {{ title }}
       </h2>
     </div>
-    <UTabs :default-index="1" :items="items">
+    <UTabs :default-index="1" :items="items as import('/Users/user/web/sdnteja2.sch.id/node_modules/@nuxt/ui/dist/runtime/types/tabs').TabItem[]">
       <template #visi="{ item }">
         <UCard>
           <template #header>
