@@ -10,4 +10,3 @@ Berikut adalah beberapa panduan umum untuk menulis pedoman kontribusi (contribut
    - **Pendahuluan**: Berisi deskripsi masalah yang mendasari penelitian, tujuan, manfaat penelitian, tinjauan teoritis, dan hipotesis. Jumlah halaman pendahuluan tidak boleh melebihi 20% dari total halaman artikel.
    - **Metode**: Bagian ini menjelaskan variabel penelitian, subjek penelitian, instrumen pengukuran, validitas, reliabilitas (untuk penelitian kuantitatif), dan metode pengumpulan data.
    - **Hasil**: Bagian ini berisi temuan penelitian.
- 

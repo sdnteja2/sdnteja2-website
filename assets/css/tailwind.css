@@ -20,24 +20,24 @@
   }
 }
 
-/* @layer components {
+@layer components {
   .cardHover {
-    @apply hover:bg-yellow duration-150 transition hover:ring-brand-900  bg-gray-100 dark:bg-gray-900 dark:ring-gray-800 ring-1 ring-gray-200  dark:hover:bg-gray-800   dark:hover:ring-yellow;
+    @apply hover:bg-yellow duration-150 transition hover:ring-merah-900  bg-gray-100 dark:bg-gray-900 dark:ring-gray-800 ring-1 ring-gray-200  dark:hover:bg-gray-800   dark:hover:ring-kuning;
   }
   .headline {
-    @apply text-center max-w-3xl mx-auto block font-extrabold text-g2 md:text-g3;
+    @apply text-balance mb-4 md:mb-6 py-2 md:text-5xl  text-3xl font-extrabold;
   }
   .subheadline {
     @apply mt-3 mb-6 text-center max-w-3xl mx-auto;
   }
-} */
+}
 
 @layer base {
   html {
     @apply text-[16px]  scroll-smooth;
   }
   body {
-    @apply font-body bg-slate-50 dark:bg-gelap-900 text-merah-900  dark:text-merah-400;
+    @apply font-body bg-slate-50 dark:bg-gelap-900 text-merah-900  dark:text-slate-300;
   }
   h1,
   h2,

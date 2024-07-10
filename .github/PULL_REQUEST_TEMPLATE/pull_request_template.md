@@ -22,4 +22,3 @@
 ## Catatan
 
 [Tambahkan catatan tambahan atau informasi lain yang relevan di sini.]
-
