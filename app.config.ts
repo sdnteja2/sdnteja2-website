@@ -2,9 +2,6 @@ export default defineAppConfig({
   ui: {
     primary: 'merah',
     gray: 'slate',
-    card: {
-      background: 'bg-primary-500',
-    },
     container: {
       base: 'mx-auto',
       padding: 'px-2 py-10 sm:py-12 lg:py-16 sm:px-6 lg:px-8',
