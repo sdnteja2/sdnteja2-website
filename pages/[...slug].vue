@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div class="py-10">
+  <div class="pt-10">
     <NuxtLayout>
       <ContentDoc />
     </NuxtLayout>

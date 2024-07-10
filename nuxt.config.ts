@@ -33,7 +33,7 @@ export default defineNuxtConfig({
     global: true,
   },
   colorMode: {
-    preference: 'light',
+    preference: 'dark',
   },
   fonts: {
     families: [
