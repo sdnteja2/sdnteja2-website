@@ -9,9 +9,9 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-cancel-02' : 'i-hu
 </script>
 
 <template>
-  <div class="fixed top-0 z-[49] w-full">
+  <div class="fixed top-0 z-[49]    w-full">
     <header class="w-full  bg-gray-100/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2 ">
-      <nav class="max-w-7xl mx-auto">
+      <nav class="max-w-7xl mx-auto px-0   sm:px-6 lg:px-8">
         <div class="flex justify-between h-10 md:h-14 items-center">
           <div class="flex w-full">
             LOGO

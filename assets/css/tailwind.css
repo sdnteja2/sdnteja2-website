@@ -25,7 +25,7 @@
     @apply hover:bg-yellow duration-150 transition hover:ring-merah-900  bg-gray-100 dark:bg-gray-900 dark:ring-gray-800 ring-1 ring-gray-200  dark:hover:bg-gray-800   dark:hover:ring-kuning;
   }
   .headline {
-    @apply text-balance mb-4 md:mb-6 py-2 md:text-5xl  text-3xl font-extrabold;
+    @apply text-balance mb-4 md:mb-6 py-2 md:text-4xl  text-3xl font-extrabold;
   }
   .subheadline {
     @apply mt-3 mb-6 text-center max-w-3xl mx-auto;
