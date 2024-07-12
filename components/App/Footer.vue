@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <Ucontainer>
+  <UContainer>
     <!-- ========== FOOTER ========== -->
     <footer class="mt-auto bg-gray-900 w-full dark:bg-neutral-950">
       <div class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
@@ -104,7 +104,7 @@
       </div>
     </footer>
     <!-- ========== END FOOTER ========== -->
-  </Ucontainer>
+  </UContainer>
 </template>
 
 <style scoped></style>

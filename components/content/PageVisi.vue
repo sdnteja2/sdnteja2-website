@@ -1,8 +1,5 @@
 <script setup lang="ts">
-interface TabItem {
-  label: string
-  content: string[]
-}
+import type { TabItem } from '#ui/types'
 
 defineProps({
   items: {
@@ -31,23 +28,22 @@ defineProps({
         </div>
         <Swiper
           :style="{
-            '--swiper-navigation-color': '#031',
-            '--swiper-pagination-color': '#ff2',
+            '--swiper-navigation-color': '#F22727',
+            '--swiper-pagination-color': '#F22727',
             '--swiper-navigation-size': '20px',
             '--swiper-pagination-bullet-inactive-opacity': '0.5',
-            '--swiper-pagination-bullet-inactive-color': '#ff2',
-
+            '--swiper-pagination-bullet-inactive-color': '#F22727',
+            '--swiper-pagination-bottom': '0px',
           }"
           :height="300"
           :modules="[SwiperAutoplay, SwiperNavigation, SwiperEffectCreative, SwiperPagination]"
           :slides-per-view="1"
           :pagination="true"
-
           :navigation="true"
           :loop="true"
           effect="creative"
           :autoplay="{
-            delay: 8000,
+            delay: 3000,
             disableOnInteraction: true,
           }"
           :creative-effect="{
@@ -64,10 +60,33 @@ defineProps({
             v-for="(slide, idx) in fasilitas"
             :key="idx"
           >
-            <UCard>
-              <img :src="slide.image" alt="Fasilitas" class="w-full h-full object-cover">
-              <p>{{ slide.label }}</p>
-            </UCard>
+            <div class="dark:bg-gelap-900 bg-slate-50">
+              <UCard
+                :ui="
+                  {
+                    body: {
+                      base: '',
+                      background: '',
+                      padding: 'px-4 pt-1 sm:pt-1 sm:px-6',
+                    },
+                    header: {
+                      base: '',
+                      background: '',
+                      padding: 'px-4 py-1 sm:px-6',
+                    } }" class="mx-2"
+              >
+                <NuxtImg
+                  height="300"
+                  width="600"
+                  :src="slide.image" alt="Fasilitas" class="w-ful rounded h-full object-cover"
+                />
+                <template #header>
+                  <p class="text-center">
+                    {{ slide.label }}
+                  </p>
+                </template>
+              </UCard>
+            </div>
           </SwiperSlide>
         </Swiper>
       </div>
@@ -77,7 +96,7 @@ defineProps({
             Visi, Misi, dan Tujuan
           </h2>
         </div>
-        <UTabs :default-index="1" :items="items as import('/Users/user/web/sdnteja2.sch.id/node_modules/@nuxt/ui/dist/runtime/types/tabs').TabItem[]">
+        <UTabs :default-index="1" :items="items">
           <template #visi="{ item }">
             <UCard>
               <template #header>
