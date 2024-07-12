@@ -1,7 +1,19 @@
 <script setup lang="ts">
+interface Sekolah {
+  name: string
+  value: string
+}
+
+interface SelayangPandang {
+  nama: string
+  jabatan: string
+  poto: string
+  ucapan: string
+}
+
 defineProps({
   dataSekolah: {
-    type: Array,
+    type: Array as () => Sekolah[],
     default: () => ([
       { name: 'Nama Sekolah', value: 'SDN Teja II' },
       { name: 'NPSN', value: '20246133' },
@@ -20,12 +32,12 @@ defineProps({
     default: '/',
   },
   selayangPandang: {
-    type: Object,
+    type: Object as () => SelayangPandang,
     default: () => ({
       nama: 'Yusup, S.Pd.',
       jabatan: 'Head of Finance',
       poto: 'https://images.unsplash.com/photo-1671726203390-cdc4354ee2eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
-      uacapan: 'To say that switching to Preline has been life-changing is an understatement. My business has tripled and I got my life back.',
+      ucapan: 'To say that switching to Preline has been life-changing is an understatement. My business has tripled and I got my life back.',
     }),
   },
 })
@@ -56,7 +68,7 @@ const columns = [{
           </template>
           <blockquote>
             <p class="text-xl font-medium text-gray-800 lg:text-2xl lg:leading-normal dark:text-neutral-200">
-              {{ selayangPandang.uacapan }}
+              {{ selayangPandang.ucapan }}
             </p>
             <footer class="mt-6">
               <div class="flex items-center">
