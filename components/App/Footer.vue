@@ -1,10 +1,17 @@
 <script setup lang="ts"></script>
 
 <template>
-  <UContainer>
+  <UContainer
+    :ui="{
+      base: 'mx-auto',
+      padding: 'px-2 my-0 sm:my-0 lg:my-0 sm:px-6 lg:px-8',
+      constrained: 'max-w-7xl',
+    }"
+    class="  bg-gray-100 w-full dark:bg-gelap-950"
+  >
     <!-- ========== FOOTER ========== -->
-    <footer class="mt-auto bg-gray-900 w-full dark:bg-neutral-950">
-      <div class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
+    <footer>
+      <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
         <!-- Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
           <div class="col-span-full lg:col-span-1">
