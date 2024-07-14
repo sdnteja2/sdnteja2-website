@@ -20,7 +20,8 @@ export default function useSocialMediaIcons() {
     behance: 'i-hugeicons-behance-02',
     medium: 'i-hugeicons-medium-square',
     github: 'i-hugeicons-github-01',
-    gmail: 'i-hugeicons-mail-02',
+    email: 'i-hugeicons-mail-02',
+    messenger: 'i-hugeicons-messenger',
     // tambahkan sosial media lainnya sesuai kebutuhan
   }
 

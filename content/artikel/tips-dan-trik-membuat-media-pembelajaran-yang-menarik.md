@@ -7,6 +7,7 @@ tags:
   - Media
 date: 2024-06-05
 author: Dinar Permadi
+layout: artikel
 icon: i-ph-book-open-text-duotone
 ---
 

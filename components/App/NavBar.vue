@@ -1,17 +1,23 @@
 <script setup lang="ts">
-const open = ref()
+const open = ref(false)
+const $route = useRoute()
 // Define a shortcut to toggle the open state
 defineShortcuts({
   o: () => open.value = !open.value,
 })
-// // Define a computed property to change the icon based on the open state
+// Define a computed property to change the icon based on the open state
 const trailingIcon = computed(() => open.value ? 'i-hugeicons-cancel-02' : 'i-hugeicons-dashboard-square-01')
+
+// Function to check if a path is active
+function isActive(path: string) {
+  return $route.path === path || $route.path.startsWith('/artikel') && path === '/artikel'
+}
 </script>
 
 <template>
-  <div class="fixed top-0 z-[49]    w-full">
-    <header class="w-full  bg-gray-100/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2 ">
-      <nav class="max-w-7xl mx-auto px-0   sm:px-6 lg:px-8">
+  <div class="fixed top-0 z-[49] w-full">
+    <header class="w-full bg-gray-100/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2">
+      <nav class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div class="flex justify-between h-10 md:h-14 items-center">
           <div class="flex w-full">
             LOGO
@@ -21,11 +27,10 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-cancel-02' : 'i-hu
               <ContentNavigation v-slot="{ navigation }">
                 <div v-for="link of navigation" :key="link._path">
                   <UButton
-
                     :icon="link.icon"
                     size="sm"
-                    :color="$route.path === link._path ? 'primary' : 'gray'"
-                    :variant="$route.path === link._path ? 'solid' : 'ghost'"
+                    :color="isActive(link._path) ? 'primary' : 'gray'"
+                    :variant="isActive(link._path) ? 'solid' : 'ghost'"
                     :label="link.title"
                     :trailing="false"
                     :to="link._path"
@@ -39,7 +44,7 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-cancel-02' : 'i-hu
             <div class="ml-4">
               <ColorMode />
             </div>
-            <div class="flex ml-2 md:hidden ">
+            <div class="flex ml-2 md:hidden">
               <UPopover
                 v-model:open="open"
                 :popper="{ offsetDistance: 10 }"
@@ -65,8 +70,8 @@ const trailingIcon = computed(() => open.value ? 'i-hugeicons-cancel-02' : 'i-hu
                         <UButton
                           :icon="link.icon"
                           size="sm"
-                          :color="$route.path === link._path ? 'primary' : 'gray'"
-                          :variant="$route.path === link._path ? 'solid' : 'ghost'"
+                          :color="isActive(link._path) ? 'primary' : 'gray'"
+                          :variant="isActive(link._path) ? 'solid' : 'ghost'"
                           :label="link.title"
                           :trailing="false"
                           :to="link._path"
