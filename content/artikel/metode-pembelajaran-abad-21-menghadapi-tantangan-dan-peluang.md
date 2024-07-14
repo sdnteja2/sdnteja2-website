@@ -8,6 +8,7 @@ tags:
   - Metode
 date: 2024-06-03
 author: Dinar Permadi
+layout: artikel
 icon: i-ph-book-open-text-duotone
 ---
 

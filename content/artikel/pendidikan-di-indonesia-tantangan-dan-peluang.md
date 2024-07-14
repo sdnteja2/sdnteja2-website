@@ -7,6 +7,7 @@ tags:
   - Sejarah
 date: 2024-06-07T00:00:00.000Z
 author: Dinar Permadi
+layout: artikel
 icon: i-ph-book-open-text-duotone
 ---
 

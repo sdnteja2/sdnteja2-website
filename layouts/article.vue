@@ -1,7 +1,7 @@
 <!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <!-- eslint-disable unused-imports/no-unused-vars -->
 <script setup lang="ts">
-	import { useActiveScroll } from 'vue-use-active-scroll';
+	// import { useActiveScroll } from 'vue-use-active-scroll';
 
 	const emit = defineEmits(['move']);
 
@@ -10,7 +10,7 @@
 	onMounted(() => (isSSR.value = false));
 	// Ambil rute saat ini
 	const route = useRoute();
-	const { page: artikel } = useContent();
+	const { page: article } = useContent();
 
 	const { toc } = useContent();
 
@@ -24,49 +24,45 @@
 		)
 	);
 
-	const { setActive, activeId } = useActiveScroll(ids, {
-		edgeOffset: { first: 300, last: -300 },
-	});
-	
- 
-function scrollToHeading(id: string) {
-  const element = document.getElementById(id);
-  if (element) {
-    window.setTimeout(() => {
-      window.scrollBy({
-        top: element.getBoundingClientRect().top - 80, // Sesuaikan dengan tinggi header kamu
-        behavior: 'smooth',
-      });
-      setActive(id); // Set active element immediately after scrolling
-    }, 100);
-    emit('move', id);
-  }
-}
-
+	// const { setActive, activeId } = useActiveScroll(ids, {
+	// 	edgeOffset: { first: 300, last: -300 },
+	// });
+	// function scrollToHeading(id: string) {
+	// 	const element = document.getElementById(id);
+	// 	if (element) {
+	// 		window.setTimeout(() => {
+	// 			window.scrollBy({
+	// 				top: element.getBoundingClientRect().top - 80, // Sesuaikan dengan tinggi header kamu
+	// 				behavior: 'smooth',
+	// 			});
+	// 		}, 100);
+	// 		emit('move', id);
+	// 		setActive(id); // Set active element
+	// 	}
+	// }
 
 	const networks = [
-		{ network: 'email'},
-		{ network: 'facebook'},
-		{ network: 'linkedin'},
-		{ network: 'messenger'},
-		{ network: 'pinterest'},
-		{ network: 'telegram'},
-		{ network: 'twitter'},
-		{ network: 'whatsapp'},
+		{ network: 'email', icon: 'i-ph-envelope-duotone' },
+		{ network: 'facebook', icon: 'i-ph-facebook-logo-duotone' },
+		{ network: 'linkedin', icon: 'i-ph-linkedin-logo-duotone' },
+		{ network: 'messenger', icon: 'i-ph-messenger-logo-duotone' },
+		{ network: 'pinterest', icon: 'i-ph-pinterest-logo-duotone' },
+		{ network: 'telegram', icon: 'i-ph-telegram-logo-duotone' },
+		{ network: 'twitter', icon: 'i-ph-twitter-logo-duotone' },
+		{ network: 'whatsapp', icon: 'i-ph-whatsapp-logo-duotone' },
 	];
 
 	const isLoaded = ref(false);
 	const hashtags = computed(() => {
-		return artikel.value?.tags ? artikel.value.tags.join(', ') : '';
+		return article.value?.tags ? article.value.tags.join(', ') : '';
 	});
 
 
-	const { getIcon } = useSocialMediaIcons()
 
-// defineOgImageComponent('OgImage', {
-//   title: artikel.value.title,
-//   description: artikel.value.description,
-// })
+defineOgImageComponent('OgImage', {
+  title: article.value.title,
+  description: article.value.description,
+})
 </script>
 
 <template>
@@ -82,25 +78,25 @@ function scrollToHeading(id: string) {
 					divider=">"
 					:links="[
 						{ label: 'Home', to: '/' },
-						{ label: 'Artikel', to: '/artikel' },
+						{ label: 'article', to: '/article' },
 					]"
 				/>
 
 				<UCard>
 					<template #header>
 						<div class="flex justify-between text-sm">
-							<p v-if="artikel?.author">@{{ artikel.author }}</p>
+							<p v-if="article?.author">@{{ article.author }}</p>
 							<USkeleton
 								v-else
 								class="h-4 w-24"
 							/>
 							<UBadge
-								v-if="artikel?.date"
+								v-if="article?.date"
 								size="lg"
 								color="white"
 							>
 								<time>
-									{{ formatDate(artikel.date) }}
+									{{ formatDate(article.date) }}
 								</time>
 							</UBadge>
 							<USkeleton
@@ -113,9 +109,9 @@ function scrollToHeading(id: string) {
 						<NuxtImg
 							v-show="isLoaded"
 							class="w-full object-cover rounded"
-							:src="artikel.img"
-							:alt="artikel.title"
-							:title="artikel.title"
+							:src="article.img"
+							:alt="article.title"
+							:title="article.title"
 							format="webp"
 							loading="lazy"
 							height="500"
@@ -126,7 +122,7 @@ function scrollToHeading(id: string) {
 						/>
 						<USkeleton
 							v-show="!isLoaded"
-							class="w-full h-full object-cover rounded"
+							class="size-full object-cover rounded"
 							:ui="{ rounded: 'rounded' }"
 						/>
 					</div>
@@ -135,7 +131,7 @@ function scrollToHeading(id: string) {
 							v-if="isLoaded"
 							class="font-bold text-3xl tracking-tight md:text-g3 text-balance headline font-title leading-tight title text-left"
 						>
-							{{ artikel.title }}
+							{{ article.title }}
 						</h1>
 						<USkeleton
 							v-else
@@ -146,17 +142,17 @@ function scrollToHeading(id: string) {
 						v-if="isLoaded"
 						class=""
 					>
-						{{ artikel.description }}
+						{{ article.description }}
 					</p>
 					<USkeleton
 						v-else
 						class="h-4 w-full"
 					/>
 					<template #footer>
-						<div v-if="artikel?.tags">
+						<div v-if="article?.tags">
 							<div class="flex flex-wrap">
 								<NuxtLink
-									v-for="(tag, n) in artikel.tags"
+									v-for="(tag, n) in article.tags"
 									:key="n"
 									:to="`/tags#${tag}`"
 									class="uppercase"
@@ -195,7 +191,7 @@ function scrollToHeading(id: string) {
 						v-else
 						class="w-full h-64"
 					/>
-					 
+				 
 				</UCard>
 				<!-- Tambahkan Log untuk Debugging -->
 
@@ -204,7 +200,7 @@ function scrollToHeading(id: string) {
 					<div
 						class="inline-block relative group isolate rounded-lg background-gradient ring-1 ring-gray-200 dark:ring-gray-800 p-1 sm:p-3 bg-white dark:bg-gray-900"
 					>
-						<div class="flex items-center gap-x-1.5">
+						<!-- <div class="flex items-center gap-x-1.5">
 							<UPopover
 								:popper="{ arrow: true, placement: 'top-end' }"
 								overlay
@@ -214,7 +210,7 @@ function scrollToHeading(id: string) {
 										aria-label="Daftar Isi"
 										square
 										color="gray"
-										trailing-icon="i-hugeicons-list-view"
+										trailing-icon="i-ph-list-dashes-duotone"
 									/>
 								</UTooltip>
 								<template #panel="{ close }">
@@ -236,10 +232,9 @@ function scrollToHeading(id: string) {
 												:to="{ hash: `#${link.id}` }"
 												class="text-sm my-1 px-2 p-1 line-clamp-1 ring-1 rounded-md ring-gray-200 hover:ring-gray-400 dark:hover:ring-gray-600 dark:ring-gray-800 text-left"
 												:class="{
-													// eslint-disable-next-line vue/quote-props
 													ActiveLink:
 														(isSSR && idx === 0) || activeId === link.id,
-													'text-primary-800 ring-gray-800 bg-merah dark:bg-yellow-600 dark:text-primary-900':
+													'text-primary-800 ring-gray-800 bg-yellow dark:bg-yellow-600 dark:text-primary-900':
 														activeId === link.id,
 													'hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300':
 														activeId !== link.id,
@@ -259,11 +254,11 @@ function scrollToHeading(id: string) {
 									:popper="{ arrow: true }"
 									overlay
 								>
-									<UTooltip text="Bagikan Artikel">
+									<UTooltip text="Bagikan article">
 										<UButton
-											aria-label="Bagikan Artikel"
+											aria-label="Bagikan article"
 											color="gray"
-											trailing-icon="i-hugeicons-share-03"
+											trailing-icon="i-ph-share-fat-duotone"
 										/>
 									</UTooltip>
 									<template #panel="{ close }">
@@ -273,15 +268,15 @@ function scrollToHeading(id: string) {
 													v-for="network in networks"
 													:key="network.network"
 													:network="network.network"
-													:url="`https://permadi.dev${artikel._path}/`"
-													:title="artikel.title"
-													:description="artikel.description"
-													:quote="artikel.quote"
+													:url="`https://permadi.dev${article._path}/`"
+													:title="article.title"
+													:description="article.description"
+													:quote="article.quote"
 													:hashtags="hashtags"
 													twitter-user="dinarpermadi07"
 												>
 													<UButton
-														:icon="getIcon(network.network)"
+														:icon="network.icon"
 														:aria-label="network.network"
 														@click="close"
 													/>
@@ -294,8 +289,9 @@ function scrollToHeading(id: string) {
 							<div
 								class="block h-3 border-e border-gray-300 mx-1 dark:border-gray-600"
 							/>
-						 
-						</div>
+							 
+							<div><Reactions /></div>
+						</div> -->
 					</div>
 				</div>
 				<PagePrevNext />
