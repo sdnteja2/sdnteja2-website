@@ -1,0 +1,126 @@
+<!-- eslint-disable ts/ban-ts-comment -->
+<script setup lang="ts">
+import { withTrailingSlash } from 'ufo'
+
+const props = defineProps({
+  path: {
+    type: String,
+    default: 'artikel',
+  },
+})
+const currentPage = ref(1)
+const itemsPerPage = ref(12)
+
+const selectedTag = ref('All')
+
+const { data: _articles } = await useAsyncData('artikel', async () => await queryContent(withTrailingSlash(props.path)).sort({ date: -1 }).find())
+
+const articles = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value
+  const end = start + itemsPerPage.value
+  if (selectedTag.value === 'All') {
+    return (_articles.value || []).slice(start, end)
+  }
+  return (_articles.value || []).filter(article => article.tags.includes(selectedTag.value)).slice(start, end)
+})
+
+const totalPages = computed(() => {
+  if (selectedTag.value === 'All') {
+    return Math.ceil((_articles.value || []).length / itemsPerPage.value)
+  }
+  return Math.ceil((_articles.value || []).filter(article => article.tags.includes(selectedTag.value)).length / itemsPerPage.value)
+})
+
+const allTags = computed(() => {
+  const tags = new Set()
+  if (_articles.value) {
+    _articles.value.forEach((article) => {
+      if (article.tags) {
+        article.tags.forEach((tag: string) => tags.add(tag))
+      }
+    })
+  }
+  return ['All', ...Array.from(tags)]
+})
+</script>
+
+<template>
+  <UContainer
+    v-if="articles?.length"
+    :ui="
+      {
+        base: 'mx-auto',
+        padding: 'px-2 py-0 sm:py-0 lg:py-0 sm:px-6 lg:px-8',
+        constrained: 'max-w-7xl',
+      }"
+    class=" "
+  >
+    <div class="max-w-[100rem] ">
+      <div class="flex pb-4 justify-center md:justify-end">
+        <USelectMenu
+          v-slot="{ open }"
+          v-model="selectedTag"
+          :popper="{ placement: 'bottom' }"
+          class="w-60  "
+          :options="allTags as string[]"
+        >
+          <UButton
+            color="gray"
+            :aria-label="selectedTag"
+            class="flex-1 justify-between"
+          >
+            <span class="capitalize">
+
+              {{ selectedTag }}
+            </span>
+
+            <UIcon
+              name="i-heroicons-chevron-right-20-solid"
+              class="w-5 h-5 transition-transform text-gray-400 dark:text-gray-500"
+              :class="[open && 'transform rotate-90']"
+            />
+          </UButton>
+        </USelectMenu>
+      </div>
+
+      <!-- Grid -->
+      <div
+        class="grid md:grid-cols-2 lg:grid-cols-3 lg:gap-4  gap-6"
+      >
+        <ArtikelCard
+          v-for="(article, index) in articles.slice(0)"
+          :key="index"
+          data-aos="zoom-in"
+          data-aos-duration="200"
+          :article="article"
+        />
+
+        <!-- End Card -->
+      </div>
+      <!-- End Grid -->
+    </div>
+    <div class="mt-8 flex justify-center w-full">
+      <UPagination
+        v-model="currentPage"
+        :first-button="{ icon: 'i-heroicons-arrow-small-left-20-solid', color: 'gray' }"
+        :last-button="{ icon: 'i-heroicons-arrow-small-right-20-solid', trailing: true, color: 'gray' }"
+        :page-count="itemsPerPage"
+        :max="2"
+        :total="totalPages"
+        show-first
+        show-last
+      />
+    </div>
+  </UContainer>
+  <div
+    v-else
+    class="tour"
+  >
+    <p>Seems like there are no articles yet.</p>
+    <p>
+      You can start by
+      <!-- eslint-disable-next-line -->
+      <ProseA href="https://alpine.nuxt.space/articles/write-articles">creating</ProseA> one in the <ProseCodeInline>articles</ProseCodeInline> folder.
+    </p>
+  </div>
+</template>

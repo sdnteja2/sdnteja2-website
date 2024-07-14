@@ -56,11 +56,20 @@ const { getIcon } = useSocialMediaIcons()
         >
           <template #default>
             <div class="flex items-center gap-x-4">
-              <NuxtImg class="rounded-full size-20" :src="g.poto" :alt="g.nama" />
+              <NuxtImg
+                height="500"
+                width="500"
+                sizes="100vw sm:100vw md:100vw lg:100px"
+                class="rounded-full size-20"
+                loading="lazy"
+                :title="g.nama"
+                :src="g.poto"
+                :alt="g.nama"
+              />
               <div class="grow">
-                <h3 class="font-bold tracking-normal text-lg md:text-2xl ">
+                <h2 class="font-bold tracking-normal text-lg md:text-2xl ">
                   {{ g.nama }}
-                </h3>
+                </h2>
                 <p class="text-xs uppercase dark:text-kuning ">
                   {{ g.jabatan }}
                 </p>
