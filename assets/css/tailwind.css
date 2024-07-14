@@ -22,7 +22,7 @@
 
 @layer components {
   .cardHover {
-    @apply hover:bg-yellow duration-150 transition hover:ring-merah-900  bg-gray-100 dark:bg-gray-900 dark:ring-gray-800 ring-1 ring-gray-200  dark:hover:bg-gray-800   dark:hover:ring-kuning;
+    @apply hover:bg-merah-50 duration-100    hover:divide-merah-200  transition hover:ring-merah-200     dark:hover:bg-gelap-800    dark:hover:divide-gelap-700  dark:hover:ring-gelap-700;
   }
   .headline {
     @apply text-balance mb-4 md:mb-6 py-2 md:text-4xl  text-3xl font-extrabold;
@@ -37,13 +37,13 @@
     @apply text-[16px]  scroll-smooth;
   }
   body {
-    @apply font-body bg-slate-50 dark:bg-gelap-900 text-merah-900  dark:text-slate-300;
+    @apply font-body bg-slate-50 dark:bg-gelap-950 text-merah-900  dark:text-slate-300;
   }
   h1,
   h2,
   h3,
   h4,
   h5 {
-    @apply font-title  font-black text-merah-600 dark:text-kuning;
+    @apply font-title  font-black text-merah-600 dark:text-merah tracking-tighter text-balance  ;
   }
 }

@@ -6,9 +6,9 @@ interface SosialMedia {
 
 interface Guru {
   nama: string
-  nip: string
   poto: string
   jabatan: string
+  quote: string
   sosialmedia: SosialMedia[]
 }
 
@@ -16,35 +16,78 @@ defineProps({
   guru: {
     type: Array as () => Guru[],
     default: () => ([
+      {
+        nama: 'Nama',
+        poto: 'https://example.com/johndoe.jpg',
+        jabatan: 'Jabatan Guru',
+        quote: 'Quote Guru',
+        sosialmedia: [
+          {
+            name: 'Twitter',
+            url: '/',
+          },
+          {
+            name: 'LinkedIn',
+            url: '/',
+          },
+        ],
+      },
+
     ]),
   },
 })
+
+const { getIcon } = useSocialMediaIcons()
 </script>
 
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div v-for="g in guru" :key="g.nip">
-      <UCard>
-        <template #header>
-          <img :src="g.poto" alt="Foto" class="w-full h-32 object-cover">
-        </template>
-        <template #default>
-          <h3 class="text-xl font-semibold">
-            {{ g.nama }}
-          </h3>
-          <p>{{ g.jabatan }}</p>
-          <p>{{ g.nip }}</p>
-        </template>
-        <template #footer>
-          <div class="flex space-x-2">
-            <a v-for="sosmed in g.sosialmedia" :key="sosmed.url" :href="sosmed.url" target="_blank">
-              {{ sosmed.name }}
-            </a>
-          </div>
-        </template>
-      </UCard>
+  <UContainer>
+    <div class="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div v-for="g in guru" :key="g.nama">
+        <UCard
+          :ui="
+            {
+              base: ' first-letter:',
+              background: 'bg-white dark:bg-gelap-900',
+              ring: 'ring-1 ring-gray-200 dark:ring-gelap-800',
+
+            }"
+          class="cardHover h-full"
+        >
+          <template #default>
+            <div class="flex items-center gap-x-4">
+              <NuxtImg class="rounded-full size-20" :src="g.poto" :alt="g.nama" />
+              <div class="grow">
+                <h3 class="font-bold tracking-normal text-lg md:text-2xl ">
+                  {{ g.nama }}
+                </h3>
+                <p class="text-xs uppercase dark:text-kuning ">
+                  {{ g.jabatan }}
+                </p>
+              </div>
+            </div>
+            <p class="mt-3 italic ">
+              "{{ g.quote }}"
+            </p>
+          </template>
+          <template #footer>
+            <div class="flex justify-end space-x-2">
+              <UButton
+                v-for="sosmed in g.sosialmedia"
+                :key="sosmed.url"
+                :href="sosmed.url"
+                target="_blank"
+                variant="ghost"
+                color="gray"
+                :icon="getIcon(sosmed.name)"
+                size="sm"
+              />
+            </div>
+          </template>
+        </UCard>
+      </div>
     </div>
-  </div>
+  </UContainer>
 </template>
 
 <style scoped></style>
