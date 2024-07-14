@@ -65,7 +65,7 @@ const isLoaded = ref(false)
           <NuxtImg
             v-show="isLoaded"
             class="w-full object-cover rounded"
-            :src="`${article.img}/m/1000x0/smart/`"
+            :src="article.img"
             :alt="article.title"
             :title="article.title"
             format="webp"
