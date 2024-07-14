@@ -2,16 +2,14 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: [
-    '@nuxt/image',
-    '@nuxt/content',
-    '@nuxt/eslint',
-    '@nuxt/ui',
-    '@nuxt/fonts',
-    'nuxt-swiper',
-    '@nuxthq/studio',
-    '@vueuse/nuxt',
-  ],
+  modules: ['@nuxt/image', '@nuxt/content', '@nuxt/eslint', '@nuxt/ui', '@nuxt/fonts', 'nuxt-swiper', '@nuxthq/studio', '@vueuse/nuxt', '@nuxtjs/seo'],
+
+  site: {
+    url: 'https://sdnteja2.sch.id',
+    name: 'SDN Teja II',
+    description: 'Sekolah Dasar Negeri Teja II',
+    defaultLocale: 'id', // not needed if you have @nuxtjs/i18n installed
+  },
   content: {
     documentDriven: true,
     navigation: {
@@ -20,13 +18,7 @@ export default defineNuxtConfig({
     markdown: {
       anchorLinks: false,
     },
-    highlight: {
-      theme: {
-        default: 'github-light',
-        dark: 'github-dark',
-      },
-      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini', 'c', 'cpp'],
-    },
+
   },
   ui: {
     icons: ['hugeicons'],

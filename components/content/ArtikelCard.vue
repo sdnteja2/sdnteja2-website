@@ -103,7 +103,7 @@ const isLoaded = ref(false)
           />
           <h2
             v-else
-            class="font-bold leading-tight text-xl line-clamp-3 text-gray-800 dark:text-gray-300"
+            class="font-bold leading-tight text-xl line-clamp-2 text-gray-800 dark:text-gray-300"
           >
             {{ article.title }}
           </h2>
