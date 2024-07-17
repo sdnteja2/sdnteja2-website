@@ -1,10 +1,38 @@
 <!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <!-- eslint-disable unused-imports/no-unused-vars -->
 <script setup lang="ts">
+import { useActiveScroll } from 'vue-use-active-scroll'
+
+const emit = defineEmits(['move'])
+const { toc } = useContent()
+const targets = computed(() =>
+  toc.value.links.flatMap(({ id, children = [] }: { id: string, children: { id: string }[] }) => [
+    id,
+    ...children.map(({ id }) => id),
+  ]),
+)
+
+const { setActive, activeId } = useActiveScroll(targets)
+function scrollToHeading(id: string) {
+  const element = document.getElementById(id)
+  if (element) {
+    window.setTimeout(() => {
+      window.scrollBy({
+        top: element.getBoundingClientRect().top - 80, // Sesuaikan dengan tinggi header kamu
+        behavior: 'smooth',
+      })
+    }, 100)
+    emit('move', id)
+    setActive(id) // Set active element
+  }
+}
+
+const isSSR = ref(true)
+
+onMounted(() => (isSSR.value = false))
+
 const route = useRoute()
 const { page: artikel } = useContent()
-
-const { toc } = useContent()
 
 const networks = [
   { network: 'email' },
@@ -186,7 +214,35 @@ const { getIcon } = useSocialMediaIcons()
 
                       class="flex flex-col"
                     >
-                      <Toc />
+                      <nav class="overflow-y-auto h-96 p-2">
+                        <div v-for="(link, idx) in toc.links" :key="link.id">
+                          <NuxtLink
+                            class="text-sm my-1 px-2 p-1 line-clamp-1 ring-1 rounded-md ring-gray-200 hover:ring-gray-400 dark:hover:ring-gray-600 dark:ring-gray-800 text-left"
+                            :to="{ hash: `#${link.id}` }"
+                            :class="{
+                              ActiveLink: (isSSR && idx === 0) || activeId === link.id,
+                              ParentActive: link.children?.some(({ id }) => id === activeId),
+                            }"
+                            @click="() => { scrollToHeading(link.id); close(); }"
+                          >
+                            {{ link.text }}
+                          </NuxtLink>
+                          <!-- Nested List - Start -->
+                          <div v-if="link.children">
+                            <div v-for="child in link.children" :key="child.id">
+                              <NuxtLink
+                                class="text-sm my-1 px-2 p-1 line-clamp-1 ring-1 rounded-md ring-gray-200 hover:ring-gray-400 dark:hover:ring-gray-600 dark:ring-gray-800 text-left ml-2"
+                                :to="{ hash: `#${child.id}` }"
+                                :class="{ ActiveLink: activeId === child.id }"
+                                @click="() => { scrollToHeading(child.id); close(); }"
+                              >
+                                {{ child.text }}
+                              </NuxtLink>
+                            </div>
+                          </div>
+                          <!-- Nested List - End -->
+                        </div>
+                      </nav>
                     </div>
                   </div>
                 </template>
@@ -208,25 +264,23 @@ const { getIcon } = useSocialMediaIcons()
                   </UTooltip>
                   <template #panel="{ close }">
                     <div class="flex p-1 items-center gap-x-1.5">
-                      <ClientOnly>
-                        <ShareNetwork
-                          v-for="network in networks"
-                          :key="network.network"
-                          :network="network.network"
-                          :url="`https://permadi.dev${artikel._path}/`"
-                          :title="artikel.title"
-                          :description="artikel.description"
-                          :quote="artikel.quote"
-                          :hashtags="hashtags"
-                          twitter-user="dinarpermadi07"
-                        >
-                          <UButton
-                            :icon="getIcon(network.network)"
-                            :aria-label="network.network"
-                            @click="close"
-                          />
-                        </ShareNetwork>
-                      </ClientOnly>
+                      <ShareNetwork
+                        v-for="network in networks"
+                        :key="network.network"
+                        :network="network.network"
+                        :url="`https://permadi.dev${artikel._path}/`"
+                        :title="artikel.title"
+                        :description="artikel.description"
+                        :quote="artikel.quote"
+                        :hashtags="hashtags"
+                        twitter-user="dinarpermadi07"
+                      >
+                        <UButton
+                          :icon="getIcon(network.network)"
+                          :aria-label="network.network"
+                          @click="close"
+                        />
+                      </ShareNetwork>
                     </div>
                   </template>
                 </UPopover>
@@ -244,10 +298,12 @@ const { getIcon } = useSocialMediaIcons()
 </template>
 
 <style scoped>
-.h1,
-h2,
-h3,
-h4 {
-  scroll-margin-top: 100px;
+.ActiveLink,
+.Child {
+  background: red;
+}
+
+.ParentActive {
+  background: #ff00004a;
 }
 </style>
