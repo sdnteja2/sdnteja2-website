@@ -9,7 +9,7 @@ tags:
 date: 2024-06-03
 author: Dinar Permadi
 layout: artikel
-icon: i-ph-book-open-text-duotone
+icon: i-hugeicons-notebook
 ---
 
 Selamat datang di blog kami! Kali ini, kita akan membahas tentang metode pembelajaran abad 21 yang sedang menjadi topik hangat di dunia pendidikan. Dengan perkembangan teknologi dan perubahan kebutuhan di masyarakat, metode pembelajaran juga harus beradaptasi untuk mempersiapkan generasi muda menghadapi tantangan masa depan.

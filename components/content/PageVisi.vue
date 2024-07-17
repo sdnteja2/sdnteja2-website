@@ -61,32 +61,34 @@ defineProps({
             :key="idx"
           >
             <div class="dark:bg-gelap-950 bg-slate-50">
-              <UCard
-                :ui="
-                  {
-                    base: 'm-1',
-                    body: {
+              <div class="p-1">
+                <UCard
+                  :ui="
+                    {
                       base: '',
-                      background: '',
-                      padding: 'px-4 pt-1 sm:pt-1 sm:px-6',
-                    },
-                    header: {
-                      base: '',
-                      background: '',
-                      padding: 'px-4 py-1 sm:px-6',
-                    } }" class="mx-2"
-              >
-                <NuxtImg
-                  height="300"
-                  width="600"
-                  :src="slide.image" alt="Fasilitas" class="w-ful rounded h-full object-cover"
-                />
-                <template #header>
-                  <p class="text-center">
-                    {{ slide.label }}
-                  </p>
-                </template>
-              </UCard>
+                      body: {
+                        base: '',
+                        background: '',
+                        padding: 'px-4 pt-1 sm:pt-1 sm:px-6',
+                      },
+                      header: {
+                        base: '',
+                        background: '',
+                        padding: 'px-4 py-1 sm:px-6',
+                      } }" class="mx-2"
+                >
+                  <NuxtImg
+                    height="300"
+                    width="600"
+                    :src="slide.image" alt="Fasilitas" class="w-ful rounded h-full object-cover"
+                  />
+                  <template #header>
+                    <p class="text-center">
+                      {{ slide.label }}
+                    </p>
+                  </template>
+                </UCard>
+              </div>
             </div>
           </SwiperSlide>
         </Swiper>

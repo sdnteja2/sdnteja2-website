@@ -8,7 +8,7 @@ tags:
 date: 2024-06-05
 author: Dinar Permadi
 layout: artikel
-icon: i-ph-book-open-text-duotone
+icon: i-hugeicons-notebook
 ---
 
 Media pembelajaran yang menarik merupakan bagian yang sangat penting dalam proses pembelajaran. Dengan menggunakan media pembelajaran yang menarik, siswa dapat lebih cepat dan lebih efektif memahami materi. Tetapi, bagaimana cara membuat media pembelajaran yang menarik? Berikut adalah beberapa tips dan trik yang dapat Anda gunakan untuk membuat media pembelajaran yang menarik. Menggunakan visual yang menarik merupakan salah satu cara yang efektif untuk menarik perhatian siswa dan membuat materi lebih mudah dimengerti. Menggunakan animasi atau video pendek yang berhubungan dengan materi yang diajarkan juga bisa membantu dalam meningkatkan daya tarik media pembelajaran. Dengan menyediakan pertanyaan pada akhir setiap materi, Anda juga bisa membantu siswa untuk memverifikasi pemahaman mereka tentang materi yang diajarkan. Sangat penting untuk menyediakan beragam cara bagi siswa untuk mengeksplorasi materi yang diajarkan, mulai dari melakukan diskusi dengan teman sekelas hingga mengerjakan proyek kolaboratif. Dengan demikian, siswa akan dapat lebih mudah memahami materi yang diajarkan dan menyimpan informasi dengan lebih baik.
