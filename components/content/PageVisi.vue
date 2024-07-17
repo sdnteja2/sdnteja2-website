@@ -59,8 +59,9 @@ defineProps({
           <SwiperSlide
             v-for="(slide, idx) in fasilitas"
             :key="idx"
+            class="overflow-x-hidden"
           >
-            <div class="dark:bg-gelap-950 bg-slate-50">
+            <div class="dark:bg-gelap-950 overflow-x-hidden bg-slate-50">
               <div class="p-1">
                 <UCard
                   :ui="

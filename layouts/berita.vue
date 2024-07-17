@@ -5,25 +5,9 @@ const route = useRoute()
 
 const article = ref<HTMLElement | null>(null)
 
-if (page.value && page.value.cover) {
-  useHead({
-    meta: [
-      { property: 'og:image', content: page.value.cover },
-    ],
-  })
-}
-
-const parentPath = computed(
-  () => {
-    const pathTabl = route.path.split('/')
-    pathTabl.pop()
-    return pathTabl.join('/')
-  },
-)
-
-defineOgImageComponent('Default', {
-  title: page.value?.title,
-  description: page.value?.description,
+defineOgImageComponent('PageDefault', {
+  title: page.value.title,
+  description: page.value.description,
 })
 </script>
 
