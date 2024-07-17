@@ -52,7 +52,7 @@ const hashtags = computed(() => {
 
 const { getIcon } = useSocialMediaIcons()
 
-defineOgImageComponent('Default', {
+defineOgImageComponent('PageDefault', {
   title: artikel.value.title,
   description: artikel.value.description,
 })

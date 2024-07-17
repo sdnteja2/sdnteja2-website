@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/image', '@nuxt/content', '@nuxt/eslint', '@nuxt/ui', '@nuxt/fonts', 'nuxt-swiper', '@nuxthq/studio', '@vueuse/nuxt', '@nuxtjs/seo'],
 
   site: {
-    url: 'https://sdnteja2.sch.id',
+    url: 'https://sdnteja2.vercel.app',
     name: 'SDN Teja II',
     description: 'Sekolah Dasar Negeri Teja II',
     defaultLocale: 'id', // not needed if you have @nuxtjs/i18n installed
@@ -72,32 +72,15 @@ export default defineNuxtConfig({
   routeRules: {
     // Homepage pre-rendered at build time
     '/': { prerender: true },
-    // Products page generated on demand, revalidates in background, cached until API response changes
-    // '/artikel': { isr: true },
-    // '/galeri': { isr: true },
-    // Product page generated on demand, revalidates in background, cached for 1 hour (3600 seconds)
-    // '/products/**': { swr: 3600 },
-    // Blog posts page generated on demand, revalidates in background, cached on CDN for 1 hour (3600 seconds)
-    // '/blog': { isr: 3600 },
-    // Blog post page generated on demand once until next deployment, cached on CDN
+
     '/artikel/**': { isr: true },
     '/galeri/**': { isr: true },
     '/guru/**': { isr: true },
     '/berita/**': { isr: true },
-    // Admin dashboard renders only on client-side
-    // '/admin/**': { ssr: false },
-    // Add cors headers on API routes
-    // '/api/**': { cors: true },
-    // Redirects legacy urls
-    // '/old-page': { redirect: '/new-page' }
+
   },
   hooks: {
-    // Related to https://github.com/nuxt/nuxt/pull/22558
-    // Adding all global components to the main entry
-    // To avoid lagging during page navigation on client-side
-    // Downside: bigger JS bundle
-    // With sync: 465KB, gzip: 204KB
-    // Without: 418KB, gzip: 184KB
+
     'components:extend': function (components) {
       for (const comp of components) {
         if (comp.global)
@@ -125,6 +108,7 @@ export default defineNuxtConfig({
       },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+
     },
   },
 })

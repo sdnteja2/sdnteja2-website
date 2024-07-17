@@ -2,9 +2,9 @@
 <script setup lang="ts">
 const { page } = useContent()
 
-defineOgImageComponent('Default', {
-  title: page.value?.title,
-  description: page.value?.description,
+defineOgImageComponent('PageDefault', {
+  title: page.value.title,
+  description: page.value.description,
 })
 </script>
 
