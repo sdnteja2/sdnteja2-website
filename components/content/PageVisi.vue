@@ -20,7 +20,7 @@ defineProps({
 <template>
   <UContainer>
     <div class="flex flex-col md:flex-row gap-8">
-      <div class="md:w-1/2">
+      <div data-aos="flip-up" class="md:w-1/2">
         <div>
           <h2 class="headline">
             Fasilitas
@@ -60,10 +60,11 @@ defineProps({
             v-for="(slide, idx) in fasilitas"
             :key="idx"
           >
-            <div class="dark:bg-gelap-900 bg-slate-50">
+            <div class="dark:bg-gelap-950 bg-slate-50">
               <UCard
                 :ui="
                   {
+                    base: 'm-1',
                     body: {
                       base: '',
                       background: '',
@@ -90,7 +91,7 @@ defineProps({
           </SwiperSlide>
         </Swiper>
       </div>
-      <div class="md:w-1/2">
+      <div data-aos="flip-up" class="md:w-1/2">
         <div>
           <h2 class="headline">
             Visi, Misi, dan Tujuan

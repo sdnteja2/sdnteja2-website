@@ -20,7 +20,22 @@ function isActive(path: string) {
       <nav class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div class="flex justify-between h-10 md:h-14 items-center">
           <div class="flex w-full">
-            LOGO
+            <NuxtLink
+              to="/"
+              rel="nofollow"
+              title="Home"
+              class="flex items-center  bg-slate-100 rounded-full p-2 dark:bg-gelap-800"
+            >
+              <NuxtImg
+                format="webp"
+                loading="eager"
+                src="/sdnteja2.png"
+                alt="Logo"
+                width="40"
+                height="40"
+                class="w-10 h-10 "
+              />
+            </NuxtLink>
           </div>
           <div class="flex items-center">
             <div class="md:flex flex-row space-x-2 hidden">

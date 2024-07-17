@@ -61,11 +61,11 @@ const columns = [{
 <template>
   <UContainer class="py-16">
     <div class="pb-8">
-      <h2 data-aos="fade-up" data-aos-anchor-placement="top-bottom" class="headline">
+      <h2 data-aos="flip-up" class="headline">
         PRESTASI SDN TEJA II
       </h2>
     </div>
-    <UCard data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+    <UCard data-aos="flip-up">
       <UTable class="max-w-5xl mx-auto" :columns="columns" :rows="dataPrestasi" />
     </UCard>
   </UContainer>
