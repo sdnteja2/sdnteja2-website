@@ -49,11 +49,13 @@ const allTags = computed(() => {
         <USelectMenu
           v-slot="{ open }"
           v-model="selectedTag"
+
           :popper="{ placement: 'bottom' }"
           class="w-60"
           :options="allTags as string[]"
         >
           <UButton
+            data-aos="flip-up"
             color="gray"
             :aria-label="selectedTag"
             class="flex-1 justify-between"
@@ -70,7 +72,7 @@ const allTags = computed(() => {
         </USelectMenu>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <ArtikelCard v-for="(article, index) in paginatedArticles" :key="index" :article="article" />
+        <ArtikelCard v-for="(article, index) in paginatedArticles" :key="index" data-aos="flip-up" :article="article" />
       </div>
       <div class="mt-8 flex justify-center w-full">
         <UPagination

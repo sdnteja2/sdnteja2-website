@@ -4,10 +4,10 @@
   <UContainer>
     <div class="max-w-[85rem] mx-auto ">
       <!-- Grid -->
-      <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
+      <div data-aos="flip-up" class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
         <div>
           <h1 class="block text-4xl   sm:text-4xl lg:text-6xl lg:leading-tight text-balance  ">
-            Selamat Datang di Website <span class="text-gray-900 dark:text-primary-600">SDN TEJA II</span>
+            Selamat Datang di Website <span class="text-gray-900 dark:text-kuning-500">SDN TEJA II</span>
           </h1>
           <p class="mt-3 text-lg   ">
             Hand-picked professionals and expertly crafted components, designed for any kind of entrepreneur.
@@ -19,9 +19,6 @@
               Get started
               <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </a>
-            <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white  shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" href="#">
-              Contact sales team
-            </a>
           </div>
           <!-- End Buttons -->
 
@@ -31,9 +28,8 @@
         </div>
         <!-- End Col -->
 
-        <div class="relative ms-4">
-          <img class="w-full h-64 md:h-[350px] bg-cover object-cover bg-center rounded-md" src="https://images.unsplash.com/photo-1665686377065-08ba896d16fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&h=800&q=80" alt="Image Description">
-          <div class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 size-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-neutral-800 dark:via-neutral-900/0 dark:to-neutral-900/0" />
+        <div data-aos="flip-up" class="relative ms-4">
+          <NuxtImg class="w-full h-64 md:h-[350px] bg-cover object-cover bg-center rounded-md" src="https://images.unsplash.com/photo-1665686377065-08ba896d16fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&h=800&q=80" alt="Image Description" />
 
           <!-- SVG -->
           <div class="absolute bottom-0 start-0">

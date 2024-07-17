@@ -17,7 +17,7 @@ defineProps({
       }"
   >
     <div>
-      <h1 class="headline  text-center">
+      <h1 data-aos="flip-up" class="headline  text-center">
         {{ title }}
       </h1>
     </div>

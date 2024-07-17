@@ -45,6 +45,7 @@ const { getIcon } = useSocialMediaIcons()
     <div class="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div v-for="g in guru" :key="g.nama">
         <UCard
+          data-aos="flip-up"
           :ui="
             {
               base: ' first-letter:',
@@ -84,7 +85,7 @@ const { getIcon } = useSocialMediaIcons()
               <UButton
                 v-for="sosmed in g.sosialmedia"
                 :key="sosmed.url"
-                :href="sosmed.url"
+                :to="sosmed.url"
                 target="_blank"
                 variant="ghost"
                 color="gray"

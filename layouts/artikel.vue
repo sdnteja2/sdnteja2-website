@@ -264,30 +264,29 @@ const { getIcon } = useSocialMediaIcons()
                   </UTooltip>
                   <template #panel="{ close }">
                     <div class="flex p-1 items-center gap-x-1.5">
-                      <ShareNetwork
-                        v-for="network in networks"
-                        :key="network.network"
-                        :network="network.network"
-                        :url="`https://permadi.dev${artikel._path}/`"
-                        :title="artikel.title"
-                        :description="artikel.description"
-                        :quote="artikel.quote"
-                        :hashtags="hashtags"
-                        twitter-user="dinarpermadi07"
-                      >
-                        <UButton
-                          :icon="getIcon(network.network)"
-                          :aria-label="network.network"
-                          @click="close"
-                        />
-                      </ShareNetwork>
+                      <ClientOnly>
+                        <ShareNetwork
+                          v-for="network in networks"
+                          :key="network.network"
+                          :network="network.network"
+                          :url="`https://permadi.dev${artikel._path}/`"
+                          :title="artikel.title"
+                          :description="artikel.description"
+                          :quote="artikel.quote"
+                          :hashtags="hashtags"
+                          twitter-user="dinarpermadi07"
+                        >
+                          <UButton
+                            :icon="getIcon(network.network)"
+                            :aria-label="network.network"
+                            @click="close"
+                          />
+                        </ShareNetwork>
+                      </ClientOnly>
                     </div>
                   </template>
                 </UPopover>
               </div>
-              <div
-                class="block h-3 border-e border-gray-300 mx-1 dark:border-gray-600"
-              />
             </div>
           </div>
         </div>

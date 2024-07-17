@@ -54,6 +54,7 @@ const columns = [{
     <section class="flex flex-col md:flex-row gap-8">
       <div class="w-full md:w-1/2">
         <UCard
+          data-aos="flip-up"
           :ui="
             { header: {
               base: '',
@@ -91,6 +92,7 @@ const columns = [{
 
       <div class="w-full md:w-1/2">
         <UCard
+          data-aos="flip-up"
           :ui="
             { header: {
               base: '',
