@@ -37,7 +37,7 @@ async function handleTagClick(tag) {
     <div>
       <div>
         <div class="py-10">
-          <h1 class="dark:text-white title">
+          <h1 data-aos="flip-up" class="dark:text-white title">
             Konten dengan tag: <span class="uppercase">{{ selectedTag }}</span>
           </h1>
         </div>
@@ -55,7 +55,7 @@ async function handleTagClick(tag) {
           <template v-else>
             <!-- Content Display -->
             <div v-for="content in filteredContent" :key="content.id">
-              <UCard class="h-full">
+              <UCard data-aos="flip-up" class="h-full">
                 <NuxtLink :to="content._path">
                   <div class="mb-2">
                     <h2 class="font-semibold font-body leading-tight text-gray-800 dark:text-gray-300">

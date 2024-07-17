@@ -56,8 +56,9 @@ function isActive(path: string) {
                 </div>
               </ContentNavigation>
             </div>
-            <div class="ml-4">
+            <div class="ml-4 flex space-x-2 items-center">
               <ColorMode />
+              <DocsSearchButton />
             </div>
             <div class="flex ml-2 md:hidden">
               <UPopover

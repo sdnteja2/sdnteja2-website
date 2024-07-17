@@ -64,7 +64,7 @@ const { getIcon } = useSocialMediaIcons()
       <div class="max-w-4xl mx-auto">
         <UBreadcrumb
           :ui="{
-            active: 'text-primary-800 font-bold dark:text-yellow',
+            active: 'text-primary-600 font-bold dark:text-primary-600 ',
             inactive: ' text-gray-600 font-light dark:text-gray-200',
           }"
           class="my-4 px-2 shadow py-1 ring-1 ring-gray-200 dark:ring-gray-800 rounded-lg text-lg bg-white dark:bg-gray-900 inset-x-0 text-center z-30"
@@ -77,9 +77,9 @@ const { getIcon } = useSocialMediaIcons()
 
         <UCard>
           <template #header>
-            <div class="flex justify-between text-sm">
+            <div class="flex justify-between items-center text-sm">
               <p v-if="artikel?.author">
-                @{{ artikel.author }}
+                @ {{ artikel.author }}
               </p>
               <USkeleton
                 v-else
@@ -196,7 +196,7 @@ const { getIcon } = useSocialMediaIcons()
           >
             <div class="flex items-center gap-x-1.5">
               <UPopover
-                :popper="{ arrow: true, placement: 'top-end' }"
+                :popper="{ arrow: true, placement: 'top' }"
                 overlay
               >
                 <UTooltip text="Daftar Isi">
@@ -252,7 +252,8 @@ const { getIcon } = useSocialMediaIcons()
               />
               <div class="hs-tooltip inline-block">
                 <UPopover
-                  :popper="{ arrow: true }"
+                  :popper="{ arrow: true, placement: 'top' }"
+
                   overlay
                 >
                   <UTooltip text="Bagikan Artikel">
@@ -263,26 +264,24 @@ const { getIcon } = useSocialMediaIcons()
                     />
                   </UTooltip>
                   <template #panel="{ close }">
-                    <div class="flex p-1 items-center gap-x-1.5">
-                      <ClientOnly>
-                        <ShareNetwork
-                          v-for="network in networks"
-                          :key="network.network"
-                          :network="network.network"
-                          :url="`https://permadi.dev${artikel._path}/`"
-                          :title="artikel.title"
-                          :description="artikel.description"
-                          :quote="artikel.quote"
-                          :hashtags="hashtags"
-                          twitter-user="dinarpermadi07"
-                        >
-                          <UButton
-                            :icon="getIcon(network.network)"
-                            :aria-label="network.network"
-                            @click="close"
-                          />
-                        </ShareNetwork>
-                      </ClientOnly>
+                    <div class="flex p-2 items-center gap-x-1.5">
+                      <ShareNetwork
+                        v-for="network in networks"
+                        :key="network.network"
+                        :network="network.network"
+                        :url="`https://permadi.dev${artikel._path}/`"
+                        :title="artikel.title"
+                        :description="artikel.description"
+                        :quote="artikel.quote"
+                        :hashtags="hashtags"
+                        twitter-user="dinarpermadi07"
+                      >
+                        <UButton
+                          :icon="getIcon(network.network)"
+                          :aria-label="network.network"
+                          @click="close"
+                        />
+                      </ShareNetwork>
                     </div>
                   </template>
                 </UPopover>
@@ -299,10 +298,10 @@ const { getIcon } = useSocialMediaIcons()
 <style scoped>
 .ActiveLink,
 .Child {
-  background: red;
+  @apply bg-merah-600 text-white;
 }
 
 .ParentActive {
-  background: #ff00004a;
+  @apply bg-kuning text-gelap;
 }
 </style>
