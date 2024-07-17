@@ -52,10 +52,10 @@ const hashtags = computed(() => {
 
 const { getIcon } = useSocialMediaIcons()
 
-// defineOgImageComponent('OgImage', {
-//   title: artikel.value.title,
-//   description: artikel.value.description,
-// })
+defineOgImageComponent('Default', {
+  title: artikel.value.title,
+  description: artikel.value.description,
+})
 </script>
 
 <template>
@@ -269,7 +269,7 @@ const { getIcon } = useSocialMediaIcons()
                         v-for="network in networks"
                         :key="network.network"
                         :network="network.network"
-                        :url="`https://permadi.dev${artikel._path}/`"
+                        :url="`https://sdnteja2.vercel.app${artikel._path}/`"
                         :title="artikel.title"
                         :description="artikel.description"
                         :quote="artikel.quote"
