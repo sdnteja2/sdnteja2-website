@@ -1,44 +1,11 @@
 <!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <!-- eslint-disable unused-imports/no-unused-vars -->
 <script setup lang="ts">
-import { useActiveScroll } from 'vue-use-active-scroll'
-
-const emit = defineEmits(['move'])
-
-const isSSR = ref(true)
-
-onMounted(() => (isSSR.value = false))
-// Ambil rute saat ini
 const route = useRoute()
 const { page: artikel } = useContent()
 
 const { toc } = useContent()
 
-// ['introduction', 'introduction-sub-1', 'quick-start']
-const ids = computed(() =>
-  toc.value.links.flatMap(
-    ({ id, children = [] }: { id: string, children: any[] }) => [
-      id,
-      ...children.map(({ id }) => id), // Flatten any nested link
-    ],
-  ),
-)
-
-const { setActive, activeId } = useActiveScroll(ids, {
-})
-function scrollToHeading(id: string) {
-  const element = document.getElementById(id)
-  if (element) {
-    window.setTimeout(() => {
-      window.scrollBy({
-        top: element.getBoundingClientRect().top - 80, // Sesuaikan dengan tinggi header kamu
-        behavior: 'smooth',
-      })
-    }, 100)
-    emit('move', id)
-    setActive(id) // Set active element
-  }
-}
 const networks = [
   { network: 'email' },
   { network: 'facebook' },
@@ -216,31 +183,10 @@ const { getIcon } = useSocialMediaIcons()
                   <div class="p-3 w-80">
                     <h3>Daftar Isi</h3>
                     <div
-                      v-for="(link, idx) in toc.links"
-                      :key="link.id"
+
                       class="flex flex-col"
-                      :class="{ 'ml-1': link.depth === 3 }"
-                      @click="
-                        () => {
-                          scrollToHeading(link.id);
-                          close();
-                        }
-                      "
                     >
-                      <NuxtLink
-                        :to="{ hash: `#${link.id}` }"
-                        class="text-sm my-1 px-2 p-1 line-clamp-1 ring-1 rounded-md ring-gray-200 hover:ring-gray-400 dark:hover:ring-gray-600 dark:ring-gray-800 text-left"
-                        :class="{
-                          'ActiveLink':
-                            (isSSR && idx === 0) || activeId === link.id,
-                          ' text-white ring-merah-800 bg-merah-600 dark:text-white dark:bg-merah-700':
-                            activeId === link.id,
-                          'hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300':
-                            activeId !== link.id,
-                        }"
-                      >
-                        {{ link.text }}
-                      </NuxtLink>
+                      <Toc />
                     </div>
                   </div>
                 </template>
