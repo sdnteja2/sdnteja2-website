@@ -9,12 +9,13 @@ function truncateText(text: string, length: number): string {
   }
   return `${text.substring(0, length)}...`
 }
+
 const { data: files } = await useLazyAsyncData('search', () =>
   queryContent()
     .where({ _type: 'markdown' })
     .find()
     .then(files => files.filter((file) => {
-      return ['/artikel/'].some(prefix => (file._path ?? '').startsWith(prefix))
+      return ['/artikel/', '/berita/'].some(prefix => (file._path ?? '').startsWith(prefix))
     })), { default: () => [] })
 
 const defaultGroups = computed(() => files.value.map(file => ({
@@ -24,7 +25,7 @@ const defaultGroups = computed(() => files.value.map(file => ({
   suffix: file.description,
   icon: file.icon,
   tags: file.tags,
-  tools: file.tools,
+
   content: file.body ? extractTextFromMarkdown(file.body.children) : '', // Check if body is not null
 })))
 
@@ -36,7 +37,7 @@ const queryGroups = computed(() => files.value.flatMap((file) => {
     description: file.description,
     icon: file.icon,
     tags: file.tags,
-    tools: file.tools,
+
     content: file.body ? extractTextFromMarkdown(file.body.children) : '', // Check if body is not null
   }]
 }))
@@ -85,14 +86,7 @@ function onSelect(option: any) {
     >
       <div>
         <UButton
-          v-motion
-          :initial="{
-            scale: 1,
-          }" :hovered="{
-            scale: 1,
-          }" :tapped="{
-            scale: 0.8,
-          }"
+
           aria-label="Buka pencarian"
           icon="i-hugeicons-search-01"
           color="gray"
