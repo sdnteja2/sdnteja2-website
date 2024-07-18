@@ -15,9 +15,9 @@ function isActive(path: string) {
 </script>
 
 <template>
-  <div class="fixed top-0 z-[49] w-full">
-    <header class="w-full bg-gray-100/75 overflow-hidden dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2">
-      <nav class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+  <div class="fixed top-0 z-[49] w-full overflow-hidden">
+    <header class="w-full bg-gray-100/75 dark:bg-gelap-900/75 backdrop-blur-container border-b border-gray-200 dark:border-gelap-800 p-2">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-10 md:h-14 items-center">
           <div class="flex w-full">
             <NuxtLink
@@ -33,12 +33,12 @@ function isActive(path: string) {
                 alt="Logo"
                 width="40"
                 height="40"
-                class=" h-8 w-8 md:w-10 md:h-10 "
+                class="h-8 w-8 md:w-10 md:h-10"
               />
             </NuxtLink>
           </div>
           <div class="flex items-center">
-            <div class="md:flex flex-row space-x-2 hidden">
+            <div class="hidden md:flex flex-row space-x-2">
               <ContentNavigation v-slot="{ navigation }">
                 <div v-for="link of navigation" :key="link._path">
                   <UButton
