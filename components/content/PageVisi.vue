@@ -15,86 +15,45 @@ defineProps({
     default: '',
   },
 })
+
+const carouselRef = ref()
+onMounted(() => {
+  setInterval(() => {
+    if (!carouselRef.value)
+      return
+
+    if (carouselRef.value.page === carouselRef.value.pages) {
+      return carouselRef.value.select(0)
+    }
+
+    carouselRef.value.next()
+  }, 1500)
+})
 </script>
 
 <template>
   <UContainer>
     <div class="flex flex-col md:flex-row gap-8">
-      <div data-aos="flip-up" class="md:w-1/2">
+      <div data-aos="flip-up" class="md:w-1/2 overflow-hidden">
         <div>
           <h2 class="headline">
             Fasilitas
           </h2>
         </div>
-        <Swiper
-          :style="{
-            '--swiper-navigation-color': '#F22727',
-            '--swiper-pagination-color': '#F22727',
-            '--swiper-navigation-size': '20px',
-            '--swiper-pagination-bullet-inactive-opacity': '0.5',
-            '--swiper-pagination-bullet-inactive-color': '#F22727',
-            '--swiper-pagination-bottom': '0px',
-          }"
-          :height="300"
-          :modules="[SwiperAutoplay, SwiperNavigation, SwiperEffectCreative, SwiperPagination]"
-          :slides-per-view="1"
-          :pagination="true"
-          :navigation="true"
-          :loop="true"
-          effect="creative"
-          :autoplay="{
-            delay: 3000,
-            disableOnInteraction: true,
-          }"
-          :creative-effect="{
-            prev: {
-              shadow: false,
-              translate: ['-20%', 0, -1],
-            },
-            next: {
-              translate: ['100%', 0, 0],
-            },
-          }"
+
+        <UCarousel
+          ref="carouselRef"
+          v-slot="{ item }" :items="fasilitas" :ui="{ item: 'basis-full' }" class="rounded-lg overflow-hidden" arrows indicators
         >
-          <SwiperSlide
-            v-for="(slide, idx) in fasilitas"
-            :key="idx"
-            class="overflow-x-hidden"
-          >
-            <div class="dark:bg-gelap-950 overflow-x-hidden bg-slate-50">
-              <div class="p-1">
-                <UCard
-                  :ui="
-                    {
-                      base: '',
-                      body: {
-                        base: '',
-                        background: '',
-                        padding: 'px-4 pt-1 sm:pt-1 sm:px-6',
-                      },
-                      header: {
-                        base: '',
-                        background: '',
-                        padding: 'px-4 py-1 sm:px-6',
-                      } }" class="mx-2"
-                >
-                  <NuxtImg
-                    height="300"
-                    width="600"
-                    :src="slide.image" alt="Fasilitas" class="w-ful rounded h-full object-cover"
-                  />
-                  <template #header>
-                    <p class="text-center">
-                      {{ slide.label }}
-                    </p>
-                  </template>
-                </UCard>
-              </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+          <NuxtImg :src="item.image" class="w-full" draggable="false" />
+          <div class="absolute w-full top-0 bg-gelap/50">
+            <p class="text-center">
+              {{ item.label }}
+            </p>
+          </div>
+        </UCarousel>
       </div>
-      <div data-aos="flip-up" class="md:w-1/2">
+      <div data-aos="flip-up" class="md:w-1/2 overflow-hidden">
         <div>
           <h2 class="headline">
             Visi, Misi, dan Tujuan
