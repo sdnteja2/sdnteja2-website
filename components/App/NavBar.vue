@@ -24,16 +24,16 @@ function isActive(path: string) {
               to="/"
               rel="nofollow"
               title="Home"
-              class="flex items-center  bg-slate-100 rounded-full p-2 dark:bg-gelap-800"
             >
               <NuxtImg
                 format="webp"
                 loading="eager"
                 src="/sdnteja2.png"
+                title="SDN Teja 2"
                 alt="Logo"
                 width="40"
                 height="40"
-                class="w-10 h-10 "
+                class=" h-8 w-8 md:w-10 md:h-10 "
               />
             </NuxtLink>
           </div>

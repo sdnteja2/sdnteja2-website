@@ -1,14 +1,18 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 
-const props = withDefaults(defineProps<{ title?: string, description?: string, headline?: string }>(), {
+const props = withDefaults(defineProps<{ title?: string, description?: string }>(), {
   title: 'title',
   description: 'description',
-  headline: 'headline',
 })
 
-const title = computed(() => (props.title || '').slice(0, 60))
-const description = computed(() => (props.description || '').slice(0, 200))
+const title = computed(() => {
+  return props.title.length > 60 ? `${props.title.slice(0, 60)}...` : props.title
+})
+
+const description = computed(() => {
+  return props.description.length > 160 ? `${props.description.slice(0, 160)}...` : props.description
+})
 </script>
 
 <template>
@@ -42,13 +46,13 @@ const description = computed(() => (props.description || '').slice(0, 200))
     </svg>
 
     <div class="w-[600px] pl-[100px]">
-      <p v-if="headline" class="uppercase text-[24px] text-[#00DC82] mb-4 font-semibold">
-        {{ headline }}
+      <p class="uppercase text-[24px] text-[#EE2924] mb-4 font-semibold">
+        SDN Teja II
       </p>
-      <h1 v-if="title" class="w-[600px] m-0 text-[75px] font-semibold mb-4 text-white flex items-center">
+      <h1 class="w-[600px] m-0 text-5xl font-semibold mb-4 text-white flex items-center">
         <span>{{ title }}</span>
       </h1>
-      <p v-if="description" class="text-[32px] text-[#E4E4E7] leading-tight">
+      <p class="text-2xl text-[#E4E4E7] leading-tight">
         {{ description }}
       </p>
     </div>
