@@ -52,7 +52,7 @@ const columns = [{
 <template>
   <UContainer>
     <section class="flex flex-col md:flex-row gap-8">
-      <div class="w-full md:w-1/2">
+      <div class="w-full overflow-hidden md:w-1/2">
         <UCard
           data-aos="flip-up"
           :ui="
@@ -74,7 +74,17 @@ const columns = [{
             <footer class="mt-6">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
-                  <img class="size-12 rounded-full" :src="selayangPandang.poto" alt="Image Description">
+                  <NuxtImg
+                    class="size-12 rounded-full"
+                    :src="selayangPandang.poto"
+                    :title="selayangPandang.nama"
+                    :alt="selayangPandang.nama"
+                    format="webp"
+                    height="500"
+                    sizes="100vw sm:100vw md:100vw lg:100px"
+                    width="500"
+                    :placeholder="[100, 60, 35, 5]"
+                  />
                 </div>
                 <div class="ms-4 lg:ms-0">
                   <p class="font-medium text-gray-800 dark:text-neutral-200">
@@ -90,7 +100,7 @@ const columns = [{
         </UCard>
       </div>
 
-      <div class="w-full md:w-1/2">
+      <div class="w-full overflow-hidden md:w-1/2">
         <UCard
           data-aos="flip-up"
           :ui="
