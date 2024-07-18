@@ -106,11 +106,7 @@ export default defineNuxtConfig({
       ],
     },
     head: {
-      htmlAttrs: {
-        lang: 'id',
-      },
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+
       themeColor: [
         { content: '#110E26', media: '(prefers-color-scheme: dark)' },
         { content: '#F22727', media: '(prefers-color-scheme: light)' },
