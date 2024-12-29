@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
+  anime: {
+    composables: true
+  },
 
   compatibilityDate: "2024-11-27"
 })

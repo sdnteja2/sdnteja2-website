@@ -2,9 +2,9 @@
 @import "@nuxt/ui";
 
 @theme {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 body {
-  @apply bg-gray-100 dark:bg-gray-950;
+  @apply bg-[#14102B] dark:bg-gray-950;
 }
