@@ -6,5 +6,5 @@
 }
 
 body {
-  @apply bg-[#14102B] dark:bg-gray-950;
+  background-color: #14102B; 
 }
