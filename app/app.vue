@@ -57,16 +57,7 @@
 
 <script setup lang="ts">
 	const { $anime } = useNuxtApp();
-	onMounted(() => {
-		useAnime({ 
-      targets: '#logo', 
-      scale: [1, 0.9],
-      duration: 500 ,
-      direction: 'alternate',
-      easing: 'bounce',
-      loop: true,
-    });
-	});
+
 	onMounted(() => {
 		$anime({
 			targets: '#text',
@@ -75,6 +66,14 @@
 			direction: 'alternate',
 			loop: true,
 			easing: 'linear',
+		});
+    $anime({
+			targets: '#logo',
+			scale: [1, 0.9],
+			duration: 1000,
+      easing: 'easeInQuad',
+			direction: 'alternate',
+			loop: true, 
 		});
 	});
 </script>
